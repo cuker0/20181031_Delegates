@@ -19,12 +19,12 @@ namespace _20181031_Delegates
 
         private static void SimpleDelegateTest()
         {
-            MathDelegate del = new MathDelegate(Math.Add); //stworzenie domyslnej delegaty
+            Action<double, double> del = Math.Add; //stworzenie domyslnej delegaty
           //  callDelegate(del);
             del += Math.Substract; // przypisane kolejnej metody do delegaty
             callDelegate(del);
 
-            MathDelegate delExpLambda = (a, b) => { Console.WriteLine($"{a} * {b} = {a * b}"); };
+            Action<double, double> delExpLambda = (a, b) => { Console.WriteLine($"{a} * {b} = {a * b}"); };
             callDelegate(del);
 
             // del += (a, b) => { Console.WriteLine($"{a} * {b} = {a * b}"); }; //wyrazenie lambda wywolana jak metoda
@@ -35,12 +35,14 @@ namespace _20181031_Delegates
             del -= delExpLambda;
             callDelegate(del);
 
+            
+
             // del = null; // wyczyszczenie delegat
             // del?.Invoke(0,0);
             // callDelegate(del);
         }
 
-        private static void callDelegate(MathDelegate del)
+        private static void callDelegate(Action<double, double> del)
         {
             Console.WriteLine("################################");
             del(10, 2);

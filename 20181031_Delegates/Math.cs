@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _20181031_Delegates
 {
-    delegate void MathDelegate(double a, double b);
+    //delegate void MathDelegate(double a, double b);
 
     static class Math
     {
