@@ -20,13 +20,17 @@ namespace _20181031_Delegates
         private static void SimpleDelegateTest()
         {
             MathDelegate del = new MathDelegate(Math.Add); //stworzenie domyslnej delegaty
-            callDelegate(del);
+          //  callDelegate(del);
             del += Math.Substract; // przypisane kolejnej metody do delegaty
             callDelegate(del);
 
-            del = null; // wyczyszczenie delegat
-            del?.Invoke(0,0);
+            del = (a, b) => { Console.WriteLine($"{a} * {b} = {a * b}"); }; //wyrazenie lambda wywolana jak metoda
+
             callDelegate(del);
+
+           // del = null; // wyczyszczenie delegat
+           // del?.Invoke(0,0);
+           // callDelegate(del);
         }
 
         private static void callDelegate(MathDelegate del)
