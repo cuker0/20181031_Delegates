@@ -24,6 +24,10 @@ namespace _20181031_Delegates
             del += Math.Substract; // przypisane kolejnej metody do delegaty
             callDelegate(del);
 
+            Func<double, double, string> delString = (a, b) => { return (a * b).ToString(); };
+          
+            delString(10,10);
+  
             Action<double, double> delExpLambda = (a, b) => { Console.WriteLine($"{a} * {b} = {a * b}"); };
             callDelegate(del);
 
