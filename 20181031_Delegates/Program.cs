@@ -24,13 +24,20 @@ namespace _20181031_Delegates
             del += Math.Substract; // przypisane kolejnej metody do delegaty
             callDelegate(del);
 
-            del = (a, b) => { Console.WriteLine($"{a} * {b} = {a * b}"); }; //wyrazenie lambda wywolana jak metoda
-
+            MathDelegate delExpLambda = (a, b) => { Console.WriteLine($"{a} * {b} = {a * b}"); };
             callDelegate(del);
 
-           // del = null; // wyczyszczenie delegat
-           // del?.Invoke(0,0);
-           // callDelegate(del);
+            // del += (a, b) => { Console.WriteLine($"{a} * {b} = {a * b}"); }; //wyrazenie lambda wywolana jak metoda
+
+            del += delExpLambda;
+                    
+            callDelegate(del);
+            del -= delExpLambda;
+            callDelegate(del);
+
+            // del = null; // wyczyszczenie delegat
+            // del?.Invoke(0,0);
+            // callDelegate(del);
         }
 
         private static void callDelegate(MathDelegate del)
